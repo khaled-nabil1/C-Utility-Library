@@ -2,13 +2,12 @@
 # C Utility Library
 
 A collection of useful C functions for operations on numbers, strings, arrays, matrices, and encryption ciphers. This library is designed to simplify common programming tasks and provide robust solutions for computational problems.
-
+You can find a detailed report for each functions in the functions folder.
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - Perform numerical computations like prime checks and GCD/LCM calculations.
