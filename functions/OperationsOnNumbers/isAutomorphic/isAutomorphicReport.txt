@@ -1,0 +1,49 @@
+### **Title and Overview**  
+**Program Name**: Automorphic Number Checker  
+**Purpose**: This program checks if a given number is an automorphic number. An automorphic number is a number whose square ends in the number itself.
+
+---
+
+### **Features**  
+1. Checks whether a given integer (`num`) is an automorphic number by squaring the number and checking if the result ends with the same digits as the original number.  
+2. Computes the number of digits in the given number to determine the correct number of digits to check in the square.  
+3. Returns `true` if the number is automorphic, and `false` otherwise.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be non-negative.  
+2. **Outputs**:  
+   - Returns `true` if the number is automorphic (i.e., its square ends with the number itself).  
+   - Returns `false` if the number is not automorphic.
+
+---
+
+### **Workflow**  
+1. Initialize `num_of_digits` to 0 to count the number of digits in the input number (`num`).  
+2. Use a `while` loop to count the number of digits in `num` by repeatedly dividing it by 10.  
+3. Initialize `ten_pow` to 1, then use a `for` loop to calculate `10^num_of_digits`, which is used to isolate the last digits of the square.  
+4. Square the number (`num * num`) and check if the last `num_of_digits` digits of the result are equal to the original number.  
+   - This is done using the modulo operation: `(num * num) % ten_pow`.  
+5. Return `true` if the last digits of the square match the number, otherwise return `false`.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Correctly identifies automorphic numbers by comparing the square of the number to its last digits.  
+   - Handles numbers with multiple digits by calculating the correct number of digits to check in the square.
+
+2. **Limitations**:  
+   - Assumes a non-negative integer input and does not handle invalid or negative numbers.  
+   - Performance may degrade for very large numbers due to repeated divisions and modulus operations.
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - `<stdbool.h>` for the `bool` data type and `true`/`false` values.  
+
+---

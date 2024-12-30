@@ -1,0 +1,58 @@
+### **Title and Overview**  
+**Program Name**: Kaprekar Number Checker  
+**Purpose**: This program checks if a given number is a Kaprekar number. A Kaprekar number is a number whose square can be split into two parts that sum up to the original number.
+
+---
+
+### **Features**  
+1. Determines if an integer is a Kaprekar number.  
+2. Dynamically calculates the number of digits in the input to split its square accurately.  
+3. Uses efficient arithmetic operations to check the Kaprekar property.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - An integer `num`, the number to be checked.  
+2. **Outputs**:  
+   - Returns `true` if the number is a Kaprekar number, and `false` otherwise.
+
+---
+
+### **Workflow**  
+1. Initialize `power` to 1 and `num_of_digits` to 0.  
+2. Determine the number of digits in `num` using a loop.  
+   - Increment `num_of_digits` for each division of `num_copy` by 10.  
+3. Calculate `power` as 10^num_of_digits.  
+4. Compute the square of `num`.  
+5. Split the square into two parts:  
+   - **Left part**: square/power  
+   - **Right part**: square%power  
+6. Add the left and right parts to form `S`.  
+7. Check if `S` equals the original number.  
+   - If true, return `true`.  
+   - Otherwise, return `false`.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Dynamically calculates the split point based on the number of digits in the input.  
+   - Efficient computation using basic arithmetic operations.  
+   - Works for both small and moderately large integers.  
+
+2. **Limitations**:  
+   - Limited to numbers whose squares fit within the range of the standard integer type.  
+   - May require adjustment for extremely large numbers if using `int` instead of `long long`.  
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - Standard arithmetic operations.  
+   - Boolean type from `<stdbool.h>`.  
+3. **Approach**:  
+   - Determines the Kaprekar property using digit-based splitting and addition of parts.  
+
+---

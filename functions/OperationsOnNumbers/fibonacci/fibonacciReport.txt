@@ -1,0 +1,45 @@
+### **Title and Overview**  
+**Program Name**: Fibonacci Sequence Generator  
+**Purpose**: This program generates and prints the Fibonacci sequence up to the `n`-th term.
+
+---
+
+### **Features**  
+1. Computes the Fibonacci sequence for the specified number of terms (`n`).  
+2. Prints each Fibonacci number up to the `n`-th term.  
+3. Handles edge cases where `n` is 1 or 2, ensuring correct output for smaller sequences.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`n`), which specifies the number of terms in the Fibonacci sequence to generate.  
+2. **Outputs**:  
+   - Prints the Fibonacci sequence from the first term up to the `n`-th term.
+
+---
+
+### **Workflow**  
+1. Check if `n` is at least 1 and print the first Fibonacci number (`0`).  
+2. If `n` is at least 2, print the second Fibonacci number (`1`).  
+3. Use a `for` loop starting from the third term to generate and print each Fibonacci number up to the `n`-th term:  
+   - Calculate the next Fibonacci number `F` as the sum of `F1` and `F2`.  
+   - Print the Fibonacci number and update `F1` and `F2` to the previous two numbers.  
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Efficient and simple method to generate and print the Fibonacci sequence.  
+   - Handles edge cases for small values of `n`.  
+2. **Limitations**:  
+   - Assumes the input `n` is positive; does not handle cases where `n <= 0`.  
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - `<stdio.h>` for the `printf` function to display the Fibonacci numbers.  
+
+---

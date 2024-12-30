@@ -1,0 +1,48 @@
+### **Title and Overview**  
+**Program Name**: Narcissistic Number Checker  
+**Purpose**: This program checks whether a given number is a narcissistic number (a number that is equal to the sum of its digits raised to the power of the number of digits).
+
+---
+
+### **Features**  
+1. Computes whether the input number (`num`) is a narcissistic number by summing each digit raised to the power of the total number of digits.  
+2. Returns `true` if the number is narcissistic, and `false` otherwise.  
+3. Handles any number of digits and compares the sum to the original number.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be positive.  
+2. **Outputs**:  
+   - Returns `true` if the number is narcissistic (i.e., if the sum of its digits raised to the power of the number of digits equals the number itself).  
+   - Returns `false` if the number is not narcissistic.
+
+---
+
+### **Workflow**  
+1. Initialize `S` to 0 to store the sum of digit powers.  
+2. Count the number of digits in `num` by repeatedly dividing `num` by 10 until it reaches 0.  
+3. Reinitialize `n_copy` to `num` and calculate the power of each digit (raised to the power of `num_of_digits`) in a loop.  
+4. Sum the results of each digit power and store the total in `S`.  
+5. After the loop completes, compare the sum (`S`) with the original number (`num`). If they are equal, return `true`; otherwise, return `false`.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Correctly identifies narcissistic numbers by comparing the sum of digit powers to the original number.  
+   - Handles numbers with any number of digits.
+
+2. **Limitations**:  
+   - Assumes the input is a positive integer and does not handle invalid or negative numbers.  
+   - The program uses a nested loop to calculate digit powers, which can be inefficient for large numbers with many digits.
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - `<stdbool.h>` for the `bool` data type and `true`/`false` values.  
+
+---

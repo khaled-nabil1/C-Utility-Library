@@ -1,0 +1,49 @@
+### **Title and Overview**  
+**Program Name**: GCD Calculator  
+**Purpose**: This program computes the greatest common divisor (GCD) of two integers using the Euclidean algorithm.
+
+---
+
+### **Features**  
+- Calculates the GCD of two integers efficiently.  
+- Automatically swaps values to ensure the larger number is used as the initial dividend.  
+
+---
+
+### **Inputs and Outputs**  
+- **Inputs**:  
+  - Two integers, `a` and `b`.  
+  - Assumes both numbers are non-negative.
+
+- **Outputs**:  
+  - Returns the greatest common divisor (GCD) of the two input integers.
+
+---
+
+### **Workflow**  
+1. Check if the second number (`b`) is greater than the first (`a`). If so, swap their values to ensure `a` is greater than or equal to `b`.  
+2. Enter a `do-while` loop to repeatedly calculate the remainder (`r`) of `a` divided by `b` using the modulo operator (`r = a % b`).  
+3. Update `a` and `b` for the next iteration:  
+   - Assign the value of `b` to `a`.  
+   - Assign the value of `r` to `b`.  
+4. Continue the loop until the remainder (`r`) becomes 0.  
+5. When the loop ends, return the value of `a` as the GCD.
+
+---
+
+### **Strengths and Limitations**  
+- **Strengths**:  
+  - Efficient implementation of the Euclidean algorithm for GCD calculation.  
+  - Handles cases where `a` or `b` is 0 by returning the other number as the GCD.  
+
+- **Limitations**:  
+  - Does not validate inputs to ensure they are non-negative.  
+  - Assumes integer inputs; behavior for negative or non-integer inputs is undefined.
+
+---
+
+### **Code Summary**  
+- **Programming Language**: C  
+- **Tools or Libraries Used**: None; uses standard arithmetic operations and control structures.  
+
+---

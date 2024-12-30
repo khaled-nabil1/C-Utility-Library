@@ -1,0 +1,54 @@
+### **Title and Overview**  
+**Program Name**: Smith Number Checker  
+**Purpose**: This program checks if a given number is a Smith number. A Smith number is a composite number whose sum of digits is equal to the sum of digits of its prime factors (excluding the number itself).
+
+---
+
+### **Features**  
+1. Identifies Smith numbers by verifying if the sum of digits of the number matches the sum of digits of its prime factors.  
+2. Efficiently checks if a number is prime before proceeding to factorization.  
+3. Utilizes helper functions to calculate the sum of digits and prime factorization.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - An integer `num`, the number to be checked.  
+2. **Outputs**:  
+   - Returns `true` if the number is a Smith number, and `false` otherwise.
+
+---
+
+### **Workflow**  
+1. Check if `num` is less than 2, as these cannot be Smith numbers.  
+2. Check if the number is prime using a simple primality test. If it is prime, return `false` because prime numbers cannot be Smith numbers.  
+3. Initialize a variable `S` to store the sum of the digits of the prime factors.  
+4. Factorize `num` by dividing it by integers starting from 2, and for each prime factor, add the sum of its digits to `S`.  
+5. If `num_copy` (the remaining part of `num`) is greater than 1, it is a prime factor, and its digit sum should also be added to `S`.  
+6. Compare the sum of digits of `num` with `S`.  
+   - If they are equal, return `true` (the number is a Smith number).  
+   - Otherwise, return `false`.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Efficient primality check before factorization, which reduces unnecessary computations.  
+   - Proper handling of composite numbers, ensuring only relevant numbers are processed.  
+   - Easy-to-follow logic and structure.  
+
+2. **Limitations**:  
+   - The prime factorization loop could become slow for very large numbers due to the check for all integers up to `num/2`.  
+   - The approach assumes integer input, which may be limited by the size of the `int` data type in C.  
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - Standard arithmetic operations and loops.  
+   - Boolean type from `<stdbool.h>` for return values.  
+3. **Approach**:  
+   - Combines primality testing with digit sum comparison and prime factorization to identify Smith numbers.  
+
+---

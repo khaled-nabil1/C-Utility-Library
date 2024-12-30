@@ -1,0 +1,46 @@
+### **Title and Overview**  
+**Program Name**: Abundant Number Checker  
+**Purpose**: This program checks if a given number (`num`) is an abundant number. An abundant number is one where the sum of its proper divisors (divisors excluding the number itself) is greater than the number.
+
+---
+
+### **Features**  
+1. Computes the sum of proper divisors of a number.  
+2. Determines if the sum of proper divisors is greater than the original number, making it an abundant number.  
+3. Returns `true` if the number is abundant and `false` otherwise.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be a positive integer.  
+2. **Outputs**:  
+   - Returns `true` if the number is abundant (i.e., the sum of its proper divisors is greater than the number).  
+   - Returns `false` if the number is not abundant.
+
+---
+
+### **Workflow**  
+1. Initialize a variable `S` to `1` to store the sum of proper divisors of `num`.  
+2. Use a `for` loop to iterate through potential divisors from `2` to `num / 2`. For each divisor, if it divides `num` without a remainder, add it to `S`.  
+3. After the loop, check if the sum of divisors (`S`) is greater than `num`.  
+4. Return `true` if the sum is greater, indicating the number is abundant; otherwise, return `false`.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Correctly identifies abundant numbers by comparing the sum of their proper divisors to the number itself.  
+   - Simple and easy to understand logic.
+
+2. **Limitations**:  
+   - Assumes the input `num` is positive. Negative numbers are not handled.  
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - `<stdbool.h>` for the `bool` data type and `true`/`false` values.  
+
+---

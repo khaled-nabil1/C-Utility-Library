@@ -1,0 +1,54 @@
+---
+
+### **Title and Overview**  
+**Program Name**: Palindrome Checker  
+**Purpose**: This program checks whether a given integer is a palindrome.
+
+---
+
+### **Features**  
+- Determines if an integer reads the same forwards and backwards.
+- Uses an efficient approach to reverse the number and compare it with the original.
+
+---
+
+### **Inputs and Outputs**  
+- **Inputs**:  
+  - A single integer (`num`) as input.  
+  - Assumes `num` is non-negative.
+
+- **Outputs**:  
+  - Returns `true` if the number is a palindrome.  
+  - Returns `false` if the number is not a palindrome.
+
+---
+
+### **Workflow**  
+1. Store the original number (`n`) in a temporary variable for later comparison.  
+2. Initialize a variable (`R`) to store the reversed number and set it to 0.  
+3. Repeat the following steps while the input number (`num`) is greater than 0:  
+   - Extract the last digit of the number using the modulo operator (`num % 10`).  
+   - Append the extracted digit to the reversed number by updating `R = R * 10 + digit`.  
+   - Remove the last digit of the number by dividing it by 10 (`num = num / 10`).  
+4. Compare the reversed number (`R`) with the original number (`n`).  
+5. Return `true` if they are equal, indicating the number is a palindrome, otherwise return `false`.
+
+---
+
+### **Strengths and Limitations**  
+- **Strengths**:  
+  - Efficiently checks for palindromes using a straightforward algorithm.  
+  - Works well for any non-negative integer input.  
+
+- **Limitations**:  
+  - Does not handle negative numbers or non-integer inputs.  
+  - Assumes the input fits within the standard integer range.
+
+---
+
+### **Code Summary**  
+- **Programming Language**: C  
+- **Tools or Libraries Used**:  
+  - `<stdbool.h>` for the `bool` data type and `true`/`false` values.  
+  - Relies on standard arithmetic operations for reversing the number.
+

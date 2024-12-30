@@ -1,0 +1,45 @@
+### **Title and Overview**  
+**Program Name**: Sum of Divisors Calculator  
+**Purpose**: This program calculates the sum of all divisors of a given number (excluding the number itself).
+
+---
+
+### **Features**  
+1. Computes the sum of all divisors of an integer (`num`) excluding the number itself.  
+2. Iterates from `2` to `num/2` to find all divisors and adds them to a running total.  
+3. Returns the sum of divisors as an integer.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be positive.  
+2. **Outputs**:  
+   - Returns the sum of divisors of the input number excluding the number itself.
+
+---
+
+### **Workflow**  
+1. Initialize the sum (`S`) to 1, as `1` is a divisor of all numbers.  
+2. Use a `for` loop to iterate from `2` to `num / 2` to find all divisors of the number.  
+3. For each divisor `i` where `num % i == 0`, add `i` to the sum (`S`).  
+4. Return the final sum of divisors.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Correctly identifies and sums all divisors of the number excluding the number itself.  
+   - Efficient for smaller numbers, as the loop only iterates up to `num / 2`.
+
+2. **Limitations**:  
+   - The program assumes a positive integer input and does not handle invalid inputs (e.g., non-integer or negative values).  
+   - The performance may degrade for very large numbers, as it checks divisibility up to `num / 2`.
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**: None; relies on standard control structures and arithmetic operations.  
+
+---

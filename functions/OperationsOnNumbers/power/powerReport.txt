@@ -1,0 +1,48 @@
+### **Title and Overview**  
+**Program Name**: Power Function  
+**Purpose**: This program calculates the result of raising a base number (`base`) to an exponent (`exp`), handling both positive and negative exponents.
+
+---
+
+### **Features**  
+1. Computes the power of a number by multiplying the base by itself for the number of times indicated by the exponent.  
+2. Handles positive, zero, and negative exponents.  
+3. Returns the result as a `double` value.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - An integer `base`, representing the base number.  
+   - An integer `exp`, representing the exponent to which the base is raised.  
+2. **Outputs**:  
+   - Returns a `double` value, which is the result of `base` raised to the power of `exp`.
+
+---
+
+### **Workflow**  
+1. If the exponent (`exp`) is `0`, return `1` as any number raised to the power of zero equals one.  
+2. If the exponent is negative, convert the base to its reciprocal (`1/base`) and make the exponent positive.  
+3. Initialize `result` to `1`.  
+4. Use a `for` loop to multiply `result` by the base, `exp` number of times (i.e., perform repeated multiplication).  
+5. Return the final result after all iterations.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Correctly handles both positive and negative exponents.  
+   - Simple and intuitive approach for calculating powers.
+
+2. **Limitations**:  
+   - Assumes valid inputs (e.g., the base is a valid number and exponent is an integer).  
+   - The program may not handle extremely large exponents efficiently, as it performs each multiplication sequentially.
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - No external libraries used; basic arithmetic operations and a loop are employed for computation.  
+
+---

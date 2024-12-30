@@ -1,0 +1,47 @@
+### **Title and Overview**  
+**Program Name**: Catalan Number Calculator  
+**Purpose**: This program calculates the nth Catalan number. Catalan numbers are a sequence of natural numbers that appear in various combinatorial problems, such as counting binary trees, parenthetical expressions, and more.
+
+---
+
+### **Features**  
+1. Computes the nth Catalan number using a closed-form formula.  
+2. Efficient calculation using iterative multiplication and division to avoid overflow.  
+3. Returns the Catalan number as an unsigned long integer.  
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - An integer `n` representing the desired position in the Catalan sequence.  
+2. **Outputs**:  
+   - Returns the nth Catalan number as an unsigned long integer.
+
+---
+
+### **Workflow**  
+1. Check if `n` is `0` or `1`. If true, return `1` directly, as the first two Catalan numbers are `1`.  
+2. Initialize a variable `catalan` to `1`.  
+3. Use a `for` loop to iteratively calculate the Catalan number using the formula:  Cn = (2n)!/(n+1)!*n!
+   Simplify the computation by iteratively multiplying and dividing terms to avoid factorial calculations.  
+4. Return the computed Catalan number.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Efficient computation without calculating full factorials.  
+   - Handles relatively large values of `n` due to careful handling of overflow in intermediate calculations.  
+
+2. **Limitations**:  
+   - Only supports non-negative integer inputs.  
+   - The range of `n` is limited by the size of the `unsigned long` type, which may overflow for large values of `n`.
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - No external libraries used. Basic iterative arithmetic implemented for efficiency.  
+
+---

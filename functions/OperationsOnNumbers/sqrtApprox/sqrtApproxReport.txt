@@ -1,0 +1,51 @@
+### **Title and Overview**  
+**Program Name**: Square Root Approximation  
+**Purpose**: This program approximates the square root of a given number using the Newton-Raphson method (also known as Heron's method).
+
+---
+
+### **Features**  
+1. Approximates the square root of a given number (`num`) using the iterative Newton-Raphson method.  
+2. Continues iterating until the difference between successive approximations is less than a specified threshold (`0.000000001`).  
+3. Returns the approximate value of the square root as a `double`.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be non-negative.  
+2. **Outputs**:  
+   - Returns a `double` value, the approximated square root of the input number.
+
+---
+
+### **Workflow**  
+1. Initialize `x` as half of the input number (`num / 2`), which serves as the first approximation for the square root.  
+2. Use a `do-while` loop to iteratively improve the approximation of the square root:
+   - In each iteration, calculate a new approximation (`x`) using the formula:  
+     \[
+     x = 0.5 \times (x1 + \frac{num}{x1})
+     \]
+   - Compare the difference between the previous approximation (`x1`) and the new one (`x`).  
+3. The loop continues until the difference between `x1` and `x` is less than `0.000000001`.  
+4. Once the difference is sufficiently small, return the current approximation (`x`).
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Provides a precise approximation of the square root, useful for numbers where the exact square root is difficult to compute.  
+   - Efficiently converges to the correct square root with each iteration.
+
+2. **Limitations**:  
+   - Assumes a positive integer input (`num`) and does not handle invalid or negative inputs.  
+   - The performance may degrade if a very high precision is requested (with many iterations needed).
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - No external libraries are used; the program relies on basic arithmetic operations and a loop for iteration.  
+
+---

@@ -1,0 +1,49 @@
+### **Title and Overview**  
+**Program Name**: Magic Number Checker  
+**Purpose**: This program checks if a given number is a magic number. A magic number is a number that eventually reduces to `1` when the sum of its digits is repeatedly calculated.
+
+---
+
+### **Features**  
+1. Checks whether a number is a magic number by repeatedly summing its digits until the result is a single digit.  
+2. Returns `true` if the number reduces to `1` after repeated summing, indicating that it is a magic number.  
+3. Returns `false` if the number does not reduce to `1`, indicating it is not a magic number.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be positive.  
+2. **Outputs**:  
+   - Returns `true` if the number is a magic number (i.e., it reduces to `1` after repeated summing of digits).  
+   - Returns `false` if the number does not reduce to `1`.
+
+---
+
+### **Workflow**  
+1. Initialize a variable (`S`) to store the sum of digits of the current number (`num`).  
+2. Use a `do-while` loop to repeatedly sum the digits of `num` until `num` becomes a single-digit number:  
+   - In each iteration, sum the digits of `num` by extracting each digit using `num % 10` and updating `num` by dividing it by `10`.  
+   - After summing the digits, assign the result to `S`.  
+3. If the sum (`S`) is still greater than `9` (i.e., not a single-digit number), set `num` to `S` and repeat the process.  
+4. After the loop completes, check if the result (`num`) equals `1`. If it does, return `true`; otherwise, return `false`.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Correctly identifies magic numbers by summing digits repeatedly until a single-digit result is achieved.  
+   - Efficient for small to moderate-sized numbers.
+
+2. **Limitations**:  
+   - Assumes a positive integer input and does not handle invalid or non-integer inputs.  
+   - For very large numbers, repeated summing of digits may result in additional computation time.
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - `<stdbool.h>` for the `bool` data type and `true`/`false` values.  
+
+---

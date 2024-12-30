@@ -1,0 +1,45 @@
+### **Title and Overview**  
+**Program Name**: Decimal to Binary Converter  
+**Purpose**: This program converts a given decimal number to its binary representation and prints it.
+
+---
+
+### **Features**  
+1. Converts a decimal integer (`num`) to its binary representation.  
+2. Uses a two-step process: first, builds the binary digits in reverse order, then reverses them to print the correct binary number.  
+3. Prints the binary equivalent of the decimal number to the console.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be non-negative.  
+2. **Outputs**:  
+   - Prints the binary representation of the input number.
+
+---
+
+### **Workflow**  
+1. Initialize a variable (`S`) to store the binary digits in reverse order.  
+2. Use a `while` loop to extract the binary digits of `num` by repeatedly dividing `num` by 2, appending the remainders (`num % 2`) to `S`.  
+3. Once the binary digits are collected in reverse order, initialize a new variable (`R`) to reverse the digits in `S` and store them in the correct order.  
+4. After reversing the digits, print the binary number (`R`).
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Correctly converts a decimal number to binary and prints it.  
+   - Simple and straightforward implementation.
+
+2. **Limitations**:  
+   - Assumes the input `num` is non-negative.  
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - `<stdio.h>` for the `printf` function to display the binary number.  
+
+---

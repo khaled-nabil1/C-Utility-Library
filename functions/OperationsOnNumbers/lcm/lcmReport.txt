@@ -1,0 +1,51 @@
+### **Title and Overview**  
+**Program Name**: LCM Calculator  
+**Purpose**: This program calculates the least common multiple (LCM) of two integers using the relationship between LCM and GCD.
+
+---
+
+### **Features**  
+- Computes the LCM of two integers efficiently.  
+- Utilizes the Euclidean algorithm to calculate the GCD as a step in determining the LCM.  
+- Handles both positive and negative inputs by ensuring the result is always non-negative.
+
+---
+
+### **Inputs and Outputs**  
+- **Inputs**:  
+  - Two integers, `a` and `b`.  
+
+- **Outputs**:  
+  - Returns the least common multiple (LCM) of the two input integers.
+
+---
+
+### **Workflow**  
+1. Store the original values of `a` and `b` into temporary variables (`A` and `B`).  
+2. Ensure that `a` is the larger of the two numbers by swapping `a` and `b` if necessary.  
+3. Compute the greatest common divisor (GCD) of the two numbers using the Euclidean algorithm:  
+   - Enter a `do-while` loop to calculate the remainder (`r = a % b`).  
+   - Update `a` and `b` until the remainder becomes 0.  
+   - At the end of the loop, `a` holds the GCD.  
+4. Calculate the LCM using the formula: |A*B| = gcd(A,B)*lcm(A,B) 
+5. Return the computed LCM.
+
+---
+
+### **Strengths and Limitations**  
+- **Strengths**:  
+  - Efficiently computes the LCM using a combination of the GCD and a mathematical formula.  
+  - Handles negative inputs correctly by returning the absolute value of the result.  
+
+- **Limitations**:  
+  - Assumes integer inputs; behavior for non-integer inputs is undefined.
+
+---
+
+### **Code Summary**  
+- **Programming Language**: C  
+- **Tools or Libraries Used**:  
+  - `<stdlib.h>`: Used for the `abs()` function to ensure the LCM is non-negative.  
+  - Standard arithmetic operations and the Euclidean algorithm for GCD calculation.
+
+---

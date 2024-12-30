@@ -1,0 +1,43 @@
+### **Title and Overview**  
+**Program Name**: Prime Factorization  
+**Purpose**: This program prints the prime factors of a given integer.
+
+---
+
+### **Features**  
+1. Computes and prints all prime factors of the input number.  
+2. Uses a loop to check divisibility by all integers from `2` up to the square root of the number.  
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be positive.  
+2. **Outputs**:  
+   - Prints the prime factors of the input number, each followed by a space.
+
+---
+
+### **Workflow**  
+1. Initialize a variable (`i`) to 2, the smallest prime number, and store the original number (`num`) in a temporary variable (`n`).  
+2. Use a `for` loop to iterate over possible factors (`i`) from 2 to the square root of `num`.  
+3. For each factor `i`, use a `while` loop to check if `i` divides `n` without a remainder (`n % i == 0`).  
+   - If divisible, print the factor and divide `n` by `i` to continue checking for repeated factors.  
+4. Repeat the process for the next possible factors.  
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Efficient approach for finding and printing prime factors of a number.  
+   - Stops once factors exceed the square root of the number, reducing unnecessary checks.  
+2. **Limitations**:  
+   - Assumes the input is a positive integer; does not handle negative numbers or non-integer inputs.  
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - `<stdio.h>` for the `printf` function to display the factors.  
+
+---

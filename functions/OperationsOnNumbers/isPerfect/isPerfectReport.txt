@@ -1,0 +1,48 @@
+### **Title and Overview**  
+**Program Name**: Perfect Number Checker  
+**Purpose**: This program checks if a given number is a perfect number (a number whose divisors, excluding itself, sum to the number).
+
+---
+
+### **Features**  
+1. Checks whether a given integer (`num`) is a perfect number.  
+2. Computes the sum of divisors of `num` (excluding `num` itself) and compares it to the original number.  
+3. Returns `true` if the number is perfect, and `false` otherwise.
+
+---
+
+### **Inputs and Outputs**  
+1. **Inputs**:  
+   - A single integer (`num`), assumed to be positive.  
+2. **Outputs**:  
+   - Returns `true` if the number is perfect (i.e., if the sum of its divisors equals the number).  
+   - Returns `false` if the number is not perfect.
+
+---
+
+### **Workflow**  
+1. Initialize the sum (`S`) to 1, as `1` is a divisor of all numbers.  
+2. Use a `for` loop to iterate from `2` to `num / 2` to find all divisors of the number.  
+3. For each divisor `i` where `num % i == 0`, add `i` to the sum (`S`).  
+4. After completing the loop, check if the sum of divisors (`S`) equals the original number (`num`).  
+5. Return `true` if they are equal, indicating that the number is perfect; otherwise, return `false`.
+
+---
+
+### **Strengths and Limitations**  
+1. **Strengths**:  
+   - Correctly identifies perfect numbers by calculating the sum of divisors.  
+   - Efficient for smaller numbers, as it checks divisibility up to `num / 2`.
+
+2. **Limitations**:  
+   - Assumes a positive integer input and does not handle invalid or negative numbers.  
+   - Performance may degrade for large numbers due to the need to check divisibility up to `num / 2`.
+
+---
+
+### **Code Summary**  
+1. **Programming Language**: C  
+2. **Tools or Libraries Used**:  
+   - `<stdbool.h>` for the `bool` data type and `true`/`false` values.  
+
+---
