@@ -164,3 +164,9 @@ void findEigenvalues(int size, double matrix[size][size], double eigenvalues[siz
 
 // Encryption Ciphers
 
+void caesarCipher(char *text, int shift);
+void substitutionCipher(char *text, const char *key);
+void xorCipher(char *text, char key);
+void vigenereCipher(char *text, const char *key, int encrypt);
+void atbashCipher(char *text);
+void railFenceCipher(const char *text, int depth);

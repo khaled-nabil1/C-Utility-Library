@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 int sumOfDigits(int num) {
   int S = 0;
   while (num > 0) {
@@ -621,3 +621,163 @@ void quickSort(int arr[], int low, int high) {
     quickSort(arr, pivot + 1, high);
   }
 }
+
+// Advanced Array functinos
+
+int findMissingNumber(int arr[], int size){
+    int S, SS, missing;
+    S = ((size+2)*(size+1))/2;
+    SS = 0;
+    for(int i =0 ; i< size; i++){
+        SS += arr[i];
+    }
+    missing = S - SS;
+    return missing;
+}
+void findPairsWithSum(int arr[], int size, int sum){
+    int     i = 0 , j = size-1,S;
+    quickSort(arr,i,j);
+        while(i < j){S = arr[i]+arr[j];
+            if(S == sum) {
+                printf("\n[%d,%d]",arr[i],arr[j]);
+                i++;
+                j--;
+                }
+            else if (S< sum) i++;
+            else j--;   
+        }
+}
+void findSubArrayWithSum(int arr[], int size, int sum){
+    
+}
+void rearrangeAlternatePositiveNegative(int arr[], int size);
+int findMajorityElement(int arr[], int size);
+int longestIncreasingSubsequence(int arr[], int size);
+void findDuplicates(int arr[], int size);
+void findIntersection(int arr1[], int size1, int arr2[], int size2);
+void findUnion(int arr1[], int size1, int arr2[], int size2);
+
+//  Operations on strings
+
+//  Basic string functions
+int stringLength(char* str){
+  int length = 0;
+  for(int i =0; str[i] != '\0'; i++){
+    length++;
+  }
+  return length;
+}
+
+void stringCopy(char* dest, const char* src);
+void stringConcat(char *dest, const char *src) {
+    // Find the end of the destination string
+    while (*dest != '\0') {
+        dest++;
+    }
+
+    // Append each character from source to destination
+    while (*src != '\0') {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+
+    // Null-terminate the concatenated string
+    *dest = '\0';
+}int  stringCompare(const  char*  str1,  const  char*  str2);
+bool isEmpty(char* str);
+void reverseString(char* str);
+void toUpperCase(char* str);
+void toLowerCase(char* str);
+
+
+// Encryption Ciphers
+
+char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+int findLetter(char *str,const char letter){
+  int i =0;
+  while(str[i] != '\0'){
+    if(str[i] == letter){
+      return i;
+      }
+    i++;
+  }
+  return -1;
+}
+void caesarCipher(char *text, int shift){
+
+  for(int i =0; text[i] != '\0'; i++){
+    if(text[i] >= 'a' && text[i]<= 'z'){
+      text[i] = 'a' + (text[i]  - 'a' + shift)%26;
+    }
+    else if(text[i] >= 'A' && text[i] <= 'Z'){
+      text[i] = 'A' + (text[i] - 'A' + shift)%26;
+    }
+  }
+}
+
+void substitutionCipher(char *text, const char *key){
+  for(int i=0; text[i] != '\0' ; i++){
+      if(text[i] != ' '){int position = findLetter(characters, text[i]);
+      text[i] = key[position%26];}
+    }
+
+}
+
+void xorCipher(char *text, char key){
+  for(int i =0; text[i] != '\0' ; i++){
+    text[i] = text[i] ^ key;
+  }
+}
+
+
+void vigenereCipher(char *text, char *key, int encrypt){
+  int keyLen = stringLength(key);
+  int shift = 0;
+  for(int i =0; text[i] != '\0'; i++){
+    char keyChar = key[i%keyLen];
+    
+    if(keyChar >= 'a' && keyChar <= 'z'){
+      shift = keyChar - 'a';
+      }
+    else if(keyChar >= 'A' && keyChar <= 'Z'){
+      shift = keyChar - 'A';
+      }   
+
+    if(text[i] >= 'a' && text[i]<= 'z'){
+      text[i] = 'a' + (text[i]  - 'a' + shift)%26;
+    }
+    else if(text[i] >= 'A' && text[i] <= 'Z'){
+      text[i] = 'A' + (text[i] - 'A' + shift)%26;
+    }
+  }
+}
+void atbashCipher(char *text){
+  for(int i =0; text[i] != '\0'; i++){
+    if(text[i] >= 'a' && text[i]<= 'z'){
+      text[i] = 'a' + ('z' - text[i])%26;
+    }
+    else if(text[i] >= 'A' && text[i] <= 'Z'){
+      text[i] = 'A' + ('Z' - text[i])%26;
+    }    
+  }
+}
+void railFenceCipher( char *text, int depth){
+  int pos = 0;
+  for(int i =0; i<depth; i++){
+    int first = 2*(depth -1-i);
+    int second = 2*(i);
+    int j =i;
+    int len = stringLength(text);
+    bool toggle = false;
+    if(i == depth -1 || i == 0) {first=2*(depth-1); second = first;}
+    while(j <= len){
+      printf("%c", text[j]);
+      j += toggle ? second : first;
+      toggle = !toggle;
+    }
+    printf("  ");
+  }
+}
+

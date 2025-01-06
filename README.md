@@ -2,7 +2,7 @@
 # C Utility Library
 
 A collection of useful C functions for operations on numbers, strings, arrays, matrices, and encryption ciphers. This library is designed to simplify common programming tasks and provide robust solutions for computational problems.
-You can find a detailed report for each functions in the functions folder.
+You can find a detailed report for each functions in the functions directory.
 ## Table of Contents
 - [Features](#features)
 - [Installation](#installation)
@@ -11,19 +11,19 @@ You can find a detailed report for each functions in the functions folder.
 
 ## Features
 - Perform numerical computations like prime checks and GCD/LCM calculations.
-- Handle string manipulations, including trimming, reversing, and conversions.
+- Handle string manipulations, including trimming, reversing, and conversions.(working on it)
 - Work with arrays for sorting, searching, and transformations.
-- Perform matrix operations like addition, multiplication, and transposition.
+- Perform matrix operations like addition, multiplication, and transposition.(working on it)
 - Use encryption ciphers like Caesar cipher, Vigenère cipher, and basic XOR encryption.
 
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/c-mylib-library.git
+   git clone https://github.com/khaled-nabil1/C-Utility-Library.git
    ```
 2. Navigate to the project directory:
    ```bash
-   cd c-mylib-library
+   cd C-Utility-Library
    ```
 3. Include the library in your C project by adding the `mylib.h` and `mylib.c` files to your project.
 
@@ -33,11 +33,10 @@ Include the library in your code:
 #include "mylib.h"
 
 int main() {
-    int gcd = find_gcd(48, 18);
+    int gcd = gcd(48, 18);
     printf("GCD: %d\n", gcd);
 
-    char encrypted[50];
-    caesar_cipher("hello", encrypted, 3);
+    caesarCipher("hello", 3);
     printf("Encrypted: %s\n", encrypted);
 
     return 0;
