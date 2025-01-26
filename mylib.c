@@ -343,6 +343,44 @@ int sumOfPrimes(int n) {
   return S;
 }
 
+//  Operations on strings
+
+//  Basic string functions
+int stringLength(char* str){
+  int length = 0;
+  for(int i =0; str[i] != '\0'; i++){
+    length++;
+  }
+  return length;
+}
+
+void stringCopy(char* dest, const char* src);
+void stringConcat(char *dest, const char *src) {
+    while (*dest != '\0') {
+        dest++;
+    }
+
+    while (*src != '\0') {
+        *dest = *src;
+        dest++;
+        src++;
+    }
+    *dest = '\0';
+}int  stringCompare(const  char*  str1,  const  char*  str2);
+bool isEmpty(char* str);
+void reverseString(char* str);
+void toUpperCase(char* str){
+  for(int i =0; str[i] != '\0';i++){
+    if(str[i] >= 'a' && str[i] <= 'z') str[i] = str[i] - 32;
+  }
+}
+void toLowerCase(char* str){
+  for(int i =0; str[i] != '\0';i++){
+    if(str[i] >= 'A' && str[i] <= 'Z') str[i] = str[i] + 32;
+  }
+}
+
+
 // Operations on Arrays
 
 // Basic Array functions
@@ -589,34 +627,32 @@ void mergeSort(int arr[], int left, int right) {
     merge(arr, left, mid, right);
   }
 }
-// Function to swap two elements
+// helper function to swap two elements
 void swap(int *a, int *b) {
   int temp = *a;
   *a = *b;
   *b = temp;
 }
 
-// Partition function
 int partition(int arr[], int low, int high) {
-  int pivot = arr[high]; // Pivot element
-  int i = low;           // Index of the smaller element
+  int pivot = arr[high]; 
+  int i = low;           
 
   for (int j = low; j < high; j++) {
-    if (arr[j] < pivot) { // If the current element is smaller than the pivot
+    if (arr[j] < pivot) { 
       swap(&arr[i], &arr[j]);
       i++;
     }
   }
-  swap(&arr[i], &arr[high]); // Move the pivot element to its correct position
+  swap(&arr[i], &arr[high]); 
   return i;
 }
 
-// Quick Sort function
+
 void quickSort(int arr[], int low, int high) {
   if (low < high) {
     int pivot = partition(arr, low, high);
 
-    // Recursively sort elements before and after partition
     quickSort(arr, low, pivot - 1);
     quickSort(arr, pivot + 1, high);
   }
@@ -648,136 +684,130 @@ void findPairsWithSum(int arr[], int size, int sum){
         }
 }
 void findSubArrayWithSum(int arr[], int size, int sum){
-    
-}
-void rearrangeAlternatePositiveNegative(int arr[], int size);
-int findMajorityElement(int arr[], int size);
-int longestIncreasingSubsequence(int arr[], int size);
-void findDuplicates(int arr[], int size);
-void findIntersection(int arr1[], int size1, int arr2[], int size2);
-void findUnion(int arr1[], int size1, int arr2[], int size2);
-
-//  Operations on strings
-
-//  Basic string functions
-int stringLength(char* str){
-  int length = 0;
-  for(int i =0; str[i] != '\0'; i++){
-    length++;
-  }
-  return length;
-}
-
-void stringCopy(char* dest, const char* src);
-void stringConcat(char *dest, const char *src) {
-    // Find the end of the destination string
-    while (*dest != '\0') {
-        dest++;
-    }
-
-    // Append each character from source to destination
-    while (*src != '\0') {
-        *dest = *src;
-        dest++;
-        src++;
-    }
-
-    // Null-terminate the concatenated string
-    *dest = '\0';
-}int  stringCompare(const  char*  str1,  const  char*  str2);
-bool isEmpty(char* str);
-void reverseString(char* str);
-void toUpperCase(char* str);
-void toLowerCase(char* str);
-
-
-// Encryption Ciphers
-
-char characters[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-int findLetter(char *str,const char letter){
-  int i =0;
-  while(str[i] != '\0'){
-    if(str[i] == letter){
-      return i;
+  int leftPtr=0, rightPtr=0, currentSum =0;
+  while(currentSum != sum){
+    if(currentSum < sum) currentSum += arr[rightPtr++];
+    else if(currentSum > sum) currentSum -= arr[leftPtr++];
+    if(currentSum == sum){
+      for(int i = leftPtr; i < rightPtr; i++){
+        printf("%d, ", arr[i]);
       }
-    i++;
-  }
-  return -1;
-}
-void caesarCipher(char *text, int shift){
-
-  for(int i =0; text[i] != '\0'; i++){
-    if(text[i] >= 'a' && text[i]<= 'z'){
-      text[i] = 'a' + (text[i]  - 'a' + shift)%26;
-    }
-    else if(text[i] >= 'A' && text[i] <= 'Z'){
-      text[i] = 'A' + (text[i] - 'A' + shift)%26;
     }
   }
 }
-
-void substitutionCipher(char *text, const char *key){
-  for(int i=0; text[i] != '\0' ; i++){
-      if(text[i] != ' '){int position = findLetter(characters, text[i]);
-      text[i] = key[position%26];}
+void rearrangeAlternatePositiveNegative(int arr[], int size) {
+    int i = -1;
+    for (int j = 0; j < size; j++) {
+        if (arr[j] < 0) {
+            i++;
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
     }
 
+    int pos = i + 1, neg = 0;
+    while (pos < size && neg < pos && arr[neg] < 0) {
+        int temp = arr[neg];
+        arr[neg] = arr[pos];
+        arr[pos] = temp;
+        pos++;
+        neg += 2;
+    }
+}
+int findMajorityElement(int arr[], int size){
+    int candidate = arr[0], count = 1;
+    for (int i = 1; i < size; i++) {
+        if (arr[i] == candidate) {
+            count++;
+        } else {
+            count--;
+        }
+        if (count == 0) {
+            candidate = arr[i];
+            count = 1;
+        }
+    }
+
+    count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == candidate) {
+            count++;
+        }
+    }
+    return (count > size / 2) ? candidate : -1;
+}
+int longestIncreasingSubsequence(int arr[], int size){
+    int dp[size];
+    for (int i = 0; i < size; i++) {
+        dp[i] = 1;
+    }
+
+    for (int i = 1; i < size; i++) {
+        for (int j = 0; j < i; j++) {
+            if (arr[i] > arr[j] && dp[i] < dp[j] + 1) {
+                dp[i] = dp[j] + 1;
+            }
+        }
+    }
+
+    int maxLength = 0;
+    for (int i = 0; i < size; i++) {
+        if (dp[i] > maxLength) {
+            maxLength = dp[i];
+        }
+    }
+    return maxLength;
 }
 
-void xorCipher(char *text, char key){
-  for(int i =0; text[i] != '\0' ; i++){
-    text[i] = text[i] ^ key;
-  }
+void findDuplicates(int arr[], int size) {
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (arr[i] == arr[j]) {
+                printf("Duplicate: %d\n", arr[i]);
+            }
+        }
+    }
 }
 
+void findIntersection(int arr1[], int size1, int arr2[], int size2) {
+    for (int i = 0; i < size1; i++) {
+        for (int j = 0; j < size2; j++) {
+            if (arr1[i] == arr2[j]) {
+                printf("%d ", arr1[i]);
+                break;
+            }
+        }
+    }
+    printf("\n");
+}
 
-void vigenereCipher(char *text, char *key, int encrypt){
-  int keyLen = stringLength(key);
-  int shift = 0;
-  for(int i =0; text[i] != '\0'; i++){
-    char keyChar = key[i%keyLen];
-    
-    if(keyChar >= 'a' && keyChar <= 'z'){
-      shift = keyChar - 'a';
-      }
-    else if(keyChar >= 'A' && keyChar <= 'Z'){
-      shift = keyChar - 'A';
-      }   
+void findUnion(int arr1[], int size1, int arr2[], int size2){
+    int maxSize = size1 + size2;
+    int unionArray[maxSize];
+    int unionSize = 0;
 
-    if(text[i] >= 'a' && text[i]<= 'z'){
-      text[i] = 'a' + (text[i]  - 'a' + shift)%26;
+    for (int i = 0; i < size1; i++) {
+        unionArray[unionSize++] = arr1[i];
     }
-    else if(text[i] >= 'A' && text[i] <= 'Z'){
-      text[i] = 'A' + (text[i] - 'A' + shift)%26;
+
+    for (int i = 0; i < size2; i++) {
+        bool isDuplicate = false;
+        for (int j = 0; j < unionSize; j++) {
+            if (arr2[i] == unionArray[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            unionArray[unionSize++] = arr2[i];
+        }
     }
-  }
+
+    for (int i = 0; i < unionSize; i++) {
+        printf("%d ", unionArray[i]);
+    }
+    printf("\n");
 }
-void atbashCipher(char *text){
-  for(int i =0; text[i] != '\0'; i++){
-    if(text[i] >= 'a' && text[i]<= 'z'){
-      text[i] = 'a' + ('z' - text[i])%26;
-    }
-    else if(text[i] >= 'A' && text[i] <= 'Z'){
-      text[i] = 'A' + ('Z' - text[i])%26;
-    }    
-  }
-}
-void railFenceCipher( char *text, int depth){
-  int pos = 0;
-  for(int i =0; i<depth; i++){
-    int first = 2*(depth -1-i);
-    int second = 2*(i);
-    int j =i;
-    int len = stringLength(text);
-    bool toggle = false;
-    if(i == depth -1 || i == 0) {first=2*(depth-1); second = first;}
-    while(j <= len){
-      printf("%c", text[j]);
-      j += toggle ? second : first;
-      toggle = !toggle;
-    }
-    printf("  ");
-  }
-}
+
 
